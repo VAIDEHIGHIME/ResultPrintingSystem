@@ -1,7 +1,6 @@
 <%@page import="Classes.CommonString"%>
 <%@page import="DAO.DBAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
 <%@page import="Classes.derivative"%>
 <%@page import="Classes.Course"%>
 <%@page import="java.sql.SQLException"%>
@@ -11,6 +10,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="java.util.*"%>
 <!DOCTYPE html>
 
     
@@ -68,6 +68,7 @@
 
 </style>
   </head>
+  <body>
   
      <div id="watermark"><img style="height:90px;width: 90px;" src="img/IIITNLogo.png" alt="IIIT Nagpur"></div>
        <%
@@ -82,8 +83,8 @@
           
       %>
     <center>
-    <div class="container-fluid">
-        <center>
+       <div class="container-fluid">
+        <center>      
         <div class="jumbotron">
         <div style="float:left"><img style="height:90px;width: 90px;" src="img/IIITNLogo.png" alt="IIIT Nagpur"></div>
         <div>
@@ -94,14 +95,16 @@
         </center>
         
         <center style="color:red"><h5><b>अंतिम सत्र  ग्रेड रिपोर्ट /PROVISIONAL SEMESTER GRADE REPORT</b></h5></center>
-        <%
-            Date date = new Date();
-SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-String strDate= formatter.format(date);
-        %>
-        <div class="container-fluid" style="float:left"> <b>दिनांक /Date:</b><%=strDate%></div>
-        <br>
-        <br>
+        <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th><b>Reference ID:</b><%=System.currentTimeMillis()%></th>
+            <th><b>दिनांक /Date:</b><%=new SimpleDateFormat("dd/MM/yyyy").format( new Date())%></th>
+          </tr>
+        </thead>
+        </table>
+        
+    
 
       <table class="table table-bordered">
         <thead>
@@ -274,7 +277,7 @@ String strDate= formatter.format(date);
                 <%
                     float sgpa=gradePoint/totalc;
                 %>
-                <td><%=sgpa%></td>
+                <td><%=String.format("%.02f", sgpa)%></td>
                 <%
                     float toalCreditsRegistered=totalc;
                 %>
@@ -285,8 +288,10 @@ String strDate= formatter.format(date);
                 <td><%=gradePointRegistered%></td>
                 <%
                     float cgpa=sgpa;
+                    
+                    
                 %>
-                <td><%=cgpa%></td>
+                <td><%=String.format("%.02f", cgpa)%></td>
               </tr>
             </tbody>
           </table>

@@ -3,7 +3,7 @@
 <%@page import="Classes.CommonString"%>
 <%@page import="DAO.DBAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
+<%@page import="java.util.*"%>
 <%@page import="Classes.derivative"%>
 <%@page import="Classes.Course"%>
 <%@page import="java.sql.SQLException"%>
@@ -97,14 +97,14 @@
         </center>
         
         <center style="color:red"><h5><b>अंतिम सत्र  ग्रेड रिपोर्ट /PROVISIONAL SEMESTER GRADE REPORT</b></h5></center>
-        <%
-            Date date = new Date();
-SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-String strDate= formatter.format(date);
-        %>
-        <div class="container-fluid" style="float:left"> <b>दिनांक /Date:</b><%=strDate%></div>
-        <br>
-        <br>
+         <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th><b>Reference ID:</b><%=System.currentTimeMillis()%></th>
+            <th><b>दिनांक /Date:</b><%=new SimpleDateFormat("dd/MM/yyyy").format( new Date())%></th>
+          </tr>
+        </thead>
+        </table>
 
       <table class="table table-bordered">
         <thead>
@@ -277,7 +277,7 @@ String strDate= formatter.format(date);
                 <%
                     float sgpa=gradePoint/totalc;
                 %>
-                <td><%=sgpa%></td>
+                <td><%=String.format("%.02f", sgpa)%></td>
                  <%
                     float totalcc=0;
                     j=3;
@@ -305,7 +305,7 @@ String strDate= formatter.format(date);
                 <%
                     float cgpa=gradePointc/totalcc;
                 %>
-                <td><%=cgpa%></td>
+                <td><%=String.format("%.02f", cgpa)%></td>
               </tr>
             </tbody>
           </table>
