@@ -7,9 +7,12 @@ import java.sql.SQLException;
 
 public class DBAO
 {
-    String url="jdbc:mysql://localhost:3306/result";
-    String username="root";
-    String password="";
+//    String url="jdbc:mysql://localhost:3306/result";
+    String url ="jdbc:mysql://resultsiiitn.mysql.database.azure.com:3306/result";
+            
+
+    String username="resultsiiitn@resultsiiitn";
+    String password="privacy@1234";
     
     
     public Connection connectToDataBase()
