@@ -90,7 +90,7 @@
         </div>
         </center>
         
-        <center style="color:red"><h5><b>अंतिम सत्र  ग्रेड रिपोर्ट /PROVISIONAL SEMESTER GRADE REPORT</b></h5></center>
+        <center style="color:red"><h5><b>अनंतिम सत्र  ग्रेड रिपोर्ट /PROVISIONAL SEMESTER GRADE REPORT</b></h5></center>
         
          <%
             Date date = new Date();
