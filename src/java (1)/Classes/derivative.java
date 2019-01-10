@@ -81,7 +81,10 @@ public class derivative
         if("CD".equals(grade))
         {
             return(5);
-        }         
+        }   
+        if("DD".equals(grade)){
+            return(4);
+        }
         else
         {
             return(0);
